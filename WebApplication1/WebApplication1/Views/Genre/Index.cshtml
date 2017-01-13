@@ -1,0 +1,70 @@
+﻿@model  List<WebApplication1.Models.Albums>
+@{
+    ViewBag.記事者 = "Index";
+}
+
+<h2>目錄</h2>
+<p>請選擇</p>
+
+
+@*<select name="名稱ID" id="名稱ID" >
+    @foreach (var item in ViewBag.名稱s)
+    {
+    <option @(item.名稱Id==ViewBag.Selected名稱ID?"selected":"")  
+            value="@item.名稱Id">@item.Name</option>
+
+    }
+    
+</select>*@
+
+<form method="get" action="/名稱/Index" >
+@Html.DropDownList("名稱ID", new SelectList(ViewBag.名稱s, "名稱Id", "Name", ViewBag.Selected名稱ID), new { onchange = "getAlldata()" })
+    
+    <input name="SearchText" value="" />
+
+    @*@Html.TextBox("SearchText")*@
+    <button class="btn btn-xs btn-success" type="submit">送出</button>
+
+</form>
+@if (Model.Count > 0)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td>名稱</td>
+                        <td>記事者 </td>
+                        <td>金錢花費</td>
+                        <td>金錢花費(金錢花費) </td>
+
+                    </tr>
+                    @for (var i = 0; i < Model.Count; i++)
+                {
+                        <tr>
+                            <td>@Model[i].AlbumID</td>
+                            <td>@Model[i].名稱Id</td>
+                            <td>@Model[i].記事者</td>
+                            <td>@Model[i].金錢花費</td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+                <tfoot></tfoot>
+
+            </table>
+
+        </div>
+
+
+    </div>
+}
+
+
+
+
+
+

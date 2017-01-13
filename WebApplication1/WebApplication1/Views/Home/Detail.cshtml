@@ -1,0 +1,47 @@
+﻿@model WebApplication1.Models.Album
+@{ 
+    ViewBag.記事者 = "Detail";
+    Layout = "/Views/Shared/Layout.cshtml";
+}
+
+
+
+<div>
+    <div>
+        <h4>Album</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label>名稱</label>
+
+            </dt>
+
+            <dd>
+                <span>@Model.名稱</span>
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.記事者)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.記事者)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.金錢花費)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.金錢花費)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>

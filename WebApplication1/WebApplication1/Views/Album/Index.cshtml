@@ -1,0 +1,53 @@
+﻿@model List<WebApplication1.Models.Album>
+@{
+    ViewBag.記事者 = "Index";
+}
+
+
+<div class="container">
+    <div>
+        <h1>我的記事本</h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td>記事者</td>
+                        <td>名稱 </td>
+                        <td>金錢花費 </td>
+                        <td>
+                            <a class="btn btn-success" href="~/Album/Create">新增</a>
+                        </td>
+
+                    </tr>
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+
+                            
+                            <td>@Model[i].記事者</td>
+                            <td>@Model[i].名稱</td>
+                            <td>@Model[i].金錢花費</td>
+                            <td>
+                                <a class="btn btn-primary" href="~/Album/Update/@Model[i].ID">編輯</a>
+                                <a class="btn btn-danger" href="~/Album/Delete/@Model[i].ID">刪除</a>
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+                <tfoot></tfoot>
+
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
